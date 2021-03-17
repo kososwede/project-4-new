@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost'], 'project-4-new.herokuapp.com'
+ALLOWED_HOSTS = os.environ.get('GITHUB_HOSTNAME'), 'localhost', 'myproject4-mcilgrew.herokuapp.com'
 
 
 # Application definition

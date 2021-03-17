@@ -1,0 +1,723 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bellota:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/*  background image for all pages */
+.background1{
+    background-image: url("../img/unicorn-back.4738411f6a18.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*  Index  */
+.what-we-do{
+    padding-top: 10px;
+    color:  rgb(0, 0, 0);
+     text-shadow: rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px,
+    rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px;
+    font-family: 'Bellota', cursive;
+}
+
+.index-page {
+    background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+    border-radius: 25px;
+
+}
+
+hr {
+    width: 50%;
+}
+
+.page-title {
+    color:  white;
+     text-shadow: rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px,
+    rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px;
+    font-family: 'Anton', sans-serif;
+    font-size: 80px;
+
+}
+
+.fa-bug {
+    color: blue;
+}
+
+.fa-cogs {
+    color: green;
+}
+
+.about-game {
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bolder;
+}
+
+/* get_tickets page */
+
+.get-ticket-page {
+    background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+    border-radius: 25px;
+    padding-top: 10px;
+}
+
+.ticket-view {
+    background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+    border-radius: 5%;
+    }
+
+.ticket-title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.fa-bug {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.fa-thumbs-up {
+    color: red;
+}
+
+.fa-pound-sign {
+    color: red;
+}
+
+.fa-eye {
+    color: red;
+}
+
+.fa-cogs {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.ticket-type {
+    background-color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+}
+
+.ticket-stats {
+    background-color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+
+}
+
+.total-reached {
+    color: green;
+}
+
+.free-ticket {
+    color: blue;
+}
+
+.info-stats {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding-right: 0.6rem;
+    padding-top: 10px;
+    font-weight: 900;
+    color: black;
+}
+
+
+.ticket-info-description {
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.ticket-info {
+    text-align: center;
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    font-weight: bold;
+    padding-top: 15px;
+
+}
+
+.ticket-icon.fa-ticket-alt{
+    color:gold;
+}
+
+.ticket-icon.fa-tools{
+    color:brown;
+}
+
+.ticket-icon.fa-user-circle{
+    color:blue;
+}
+
+.ticket-icon.fa-file-alt{
+    color: purple;
+    padding-top: 15px;
+}
+
+div.ticket-info.info-title.center-align {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    text-shadow: rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px,
+    rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px;
+}
+
+/* view_one_ticket page */
+
+.help-text-login {
+    padding-bottom: 10px;
+    margin: 0;
+    font-family: 'Anton';
+}
+
+.login-text{
+    color: green;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.register-text {
+    color: green;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.comment-area {
+    background-color: beige;
+    border-radius: 25px;
+}
+
+.user-comments {
+    background-color: beige;
+    width: 75%;
+}
+
+.view-one-ticket {
+    background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+    border-radius: 25px;
+    padding-top: 10px;
+}
+
+.comments-title {
+    color:  white;
+     text-shadow: rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px,
+    rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px;
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+
+}
+
+i.fas.fa-user {
+    color:blue;
+}
+
+i.fas.fa-tools{
+    color:brown;
+}
+
+.edit-button {
+    
+    background-color: green;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.delete-button {
+  
+    background-color: red;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.helper-text {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.one-ticket-view {
+    background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+    border-radius: 50%;
+}
+
+label {
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.fa-comment {
+    color:blue;
+}
+
+.fa-comments {
+    color: blue;
+}
+
+.comment-button {
+    background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+    border-radius: 25px;
+}
+
+.add-comment-span {
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+form#comment_form {
+    margin-top: 15px;
+}
+
+.positioner {
+    margin-top: 15px;
+}
+
+textarea {
+    background-color: white !important;
+}
+
+.modal {
+    background-color: transparent;
+}
+
+.delete-warning {
+    font-size: 25px;
+}
+
+.back-button {
+    background-color: blue;
+}
+
+.modal-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: 'Anton';
+}
+
+/* edit ticket */
+
+input#id_title {
+    background-color: #E8F0FE;
+    border-radius: 25px;
+    text-align: center; 
+}
+
+textarea#id_description {
+    background-color: #E8F0FE !important;
+    border-radius: 25px;
+    text-align: center; 
+}
+
+label.active {
+    color: green;
+}
+
+.fa-heading {
+    color: blue;
+}
+
+.fa-file-alt {
+    color: blue;
+}
+/* login */
+
+input#id_password {
+    background-color: #E8F0FE;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.fa-lock {
+    color: gold;
+}
+
+/* profile.html */
+
+.profile-page {
+    background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+    border-radius: 25px;
+    padding-top: 10px;
+    width: 75%;
+}
+
+.profile-name {
+    text-transform: capitalize;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.profile-titles {
+     font-weight: bolder;
+    font-size: 20px;
+}
+
+.signature-icon {
+    color: red;
+    padding-right: 15px;
+}
+
+.user-icon {
+    color: blue;
+    padding-right: 15px;
+}
+
+.envelope-icon {
+    color: yellow;
+    padding-right: 15px;
+}
+
+.edit-profile-button {
+    padding-bottom: 10px !important;
+    text-align: center;
+}
+
+.my-bugs {
+   border-radius: 25px; 
+
+}
+
+.my-features {
+   border-radius: 25px; 
+}
+
+.my-ticket-title {
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.my-ticket-description {
+    color: black;
+    padding: 5px;
+}
+
+.my-ticket-title {
+     color: black;
+}
+
+.my-ticket-created-date {
+    color: blue;
+    font-weight: 600;
+}
+
+.new-feature-click-here {
+    font-weight: bolder;
+}
+
+a#click-here {
+    color: blue;
+    font-size: 18px;
+}
+
+a#feature-here {
+    color: green;
+    font-size: 18px;
+}
+
+.request-feature-text {
+    font-weight: 600;
+}
+
+.submit-bug-text a {
+    font-weight: 500;
+    color: black !important;
+}
+
+/* registration */
+
+.fa-signature:before {
+    color: red;
+}
+
+.fa-envelope:before {
+    color: yellow;
+}
+
+.fa-user:before {
+    color: blue;
+}
+
+.fa-lock:before {
+    color: goldenrod;
+}
+
+.fa-key:before {
+    color: goldenrod;
+}
+
+.login-here {
+    color: blue;
+    font-weight: bold;
+}
+
+/* reset-password */
+ div#password_reset {
+     align-content: center;
+ }
+
+ .fa-at:before {
+     color: yellow;
+ }
+
+.reset-pswd-text {
+    font-weight: bold;
+}
+
+.reset-sent {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+input#id_new_password1 {
+    background-color: #E8F0FE;
+    border-radius: 25px;
+    text-align: center;
+}
+
+input#id_new_password2 {
+    background-color: #E8F0FE;
+    border-radius: 25px;
+    text-align: center;
+}
+
+/* add bug */
+.fa-bug.prefix{
+    padding: 0px !important;
+    color: blue;
+}
+
+.fa-bug:before{
+    color: blue;
+}
+
+.fa-file-alt:before {
+    color:purple;
+}
+
+/* feature */
+.donate-text {
+    font-weight: bolder;
+}
+
+.fa-cogs.prefix {
+       padding: 0px !important;
+    color: green;
+}
+
+
+
+/*  Navbar */
+.nav-burger{
+    color: blue;
+}
+
+.nav-icon {
+    color: royalblue;
+}
+i.nav-icon.fas.fa-ticket-alt:before {
+    color: blue;
+}
+
+.sidenav li>a>i {
+    color: blue;
+}
+
+.nav-text {
+    color:  rgb(0, 0, 0);
+     text-shadow: rgb(0, 162, 255) 0px 0px 2px, rgb(0, 162, 255) 0px 0px 2px, rgb(0, 162, 255) 0px 0px 2px,
+    rgb(0, 162, 255) 0px 0px 2px, rgb(0, 162, 255) 0px 0px 2px, rgb(0, 162, 255) 0px 0px 2px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 20px;
+}
+
+nav {
+  font-family: 'Bellota', cursive;
+  font-weight: 700;
+  background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+    
+}
+
+.sidenav {
+  font-family: 'Bellota', cursive;
+  background: linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+  font-weight: 700;
+  
+}
+
+.sidenav li {
+  padding-top: 0.6rem;
+}
+
+.sidenav .sidenav-home {
+  margin-top: 3rem;
+}
+.brand-logo-title {
+    font-size: 30px;
+    color:  rgb(0, 0, 0);
+     text-shadow: rgb(0, 162, 255) 0px 0px 1px, rgb(0, 162, 255) 0px 0px 1px, rgb(0, 162, 255) 0px 0px 1px,
+    rgb(0, 162, 255) 0px 0px 1px, rgb(0, 162, 255) 0px 0px 1px, rgb(0, 162, 255) 0px 0px 1px;
+}
+
+
+.brand-logo-title-side-nav {
+    font-size: 20px;
+    color:  rgb(0, 0, 0);
+     text-shadow: rgb(0, 162, 255) 0px 0px 1px, rgb(0, 162, 255) 0px 0px 1px, rgb(0, 162, 255) 0px 0px 1px,
+    rgb(0, 162, 255) 0px 0px 1px, rgb(0, 162, 255) 0px 0px 1px, rgb(0, 162, 255) 0px 0px 1px;
+}
+
+
+nav .brand-logo img,
+.sidenav .brand-logo img {
+  vertical-align: text-bottom;
+  height: 3rem;
+  width: 4rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+.sidenav .brand-logo {
+  width: 100%;
+}
+
+/*  About */
+.about-page {
+    background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+    border-radius: 25px;
+}
+
+.about-game-header {
+    padding-top: 10px;
+    color:  rgb(0, 0, 0);
+     text-shadow: rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px,
+    rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px, rgb(0, 162, 255) 0px 0px 3px;
+    font-family: 'Bellota', cursive;
+}
+
+.app-link {
+    width: 40%;
+}
+
+/* registration */
+ 
+ input#id_email{
+    background-color: #E8F0FE;
+    border-radius: 25px;
+    text-align: center;
+}
+
+input#id_first_name {
+    background-color: #E8F0FE; 
+    border-radius: 25px;
+}
+
+input {
+    text-align: center;
+}
+
+
+input#id_last_name {
+     background-color: #E8F0FE;
+     border-radius: 25px;
+}
+
+input#id_password1 {
+    background-color: #E8F0FE;
+     border-radius: 25px;
+}
+
+input#id_password2 {
+     background-color: #E8F0FE;
+     border-radius: 25px;
+}
+
+input#id_username {
+     background-color: #E8F0FE;
+     border-radius: 25px;
+}
+
+.payment-form-label {
+    margin-left: 1rem;
+}
+
+/* STRIPE PAYMENT FORM */
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+/* FLASH MESSAGES */
+.flash-message {
+  visibility: hidden;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: fixed;
+  z-index: 100;
+  top: 5rem;
+  color: black;
+ background:  linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 12%, rgba(41,184,229,1) 48%, rgba(188,224,238,1) 83%, rgba(188,224,238,1) 100%);
+     
+}
+
+.flash-message.show {
+  visibility: visible;
+  animation: flashMessageShow 0.5s, flashMessageHide 0.5s 3.5s;
+}
+
+/* KEYFRAMES */
+@keyframes flashMessageShow {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 5rem;
+    opacity: 1;
+  }
+}
+@keyframes flashMessageHide {
+  from {
+    top: 5rem;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 481px) {
+    .page-title {
+        font-size:40px;
+    }
+}
