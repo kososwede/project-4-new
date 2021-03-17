@@ -95,4 +95,3 @@ def user_profile(request):
 
     args = {'user_form': user_form, 'user_tickets': user_tickets}
     return render(request, 'profile.html', args)
-.
