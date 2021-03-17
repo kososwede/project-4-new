@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+{% load materializecss %}
+{% load staticfiles %}
+
+{% block page_title %}{{ ticket.title }} | Details | {% endblock %}
+
+{% block page_heading %}{{ ticket.title }}{% endblock %}
+
+{% block content %}
+    
+	<!-- Full Ticket Details -->
+	    <div class="row view-one-ticket center-align">
+		<!-- Ticket Description -->
+		    <div class="col s12 m6 center-align ticket-info-description">
+			    <p>{{ ticket.description }}</p>
+		    </div>
+		<!-- Ticket Stats -->
+		    <div class="col s12 m6 center-align ticket-details">
+			    <p>
+				    <i class="fas fa-user ticket-icon" aria-hidden="true"></i>
+				    {{ ticket.user }}
+			    </p>
+			    <p class="ticket-status">
+				    <i class="fas fa-tools" aria-hidden="true"></i>
+				    {{ ticket.ticket_status }} 
+			    </p>
+			<!-- Only display the option to edit a ticket status for superusers -->
+
+			    <p class="ticket-status">
+				    <i class="fas fa-eye" aria-hidden="true"></i>
+				    {{ ticket.views }} View/s
+			    </p>
+			    <p class="ticket-status">
+				    <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+				    {{ ticket.upvotes }} Upvote/s
+			    </p>
+			    <p class="ticket-status">
+				<!-- Show edited date if the ticket has been edited or show the created date-->
+				    {% if ticket.created_date.date != ticket.edited_date.date or ticket.created_date.time.hour != ticket.edited_date.time.hour or ticket.created_date.time.minute != ticket.edited_date.time.minute %}
+				        <i class="fas fa-calendar" aria-hidden="true"></i>
+				        {{ ticket.edited_date|date:"j M Y" }}
+				        <small>({{ ticket.edited_date|time:"P" }})</small>
+				    {% else %}
+				        <i class="fas fa-calendar-plus" aria-hidden="true"></i>
+				        {{ ticket.created_date|date:"j M Y" }}
+				        <small>({{ ticket.created_date|time:"P" }})</small>
+				    {% endif %}
+			    </p>
+			<!-- Total Donations only on Feature tickets -->
+			    {% if ticket.ticket_type.ticket_type == "Feature" %}
+			<!-- If the target donation amount has been acheived -->
+			        <p class="ticket-status">
+				        {% if ticket.total_donations >= 200 %}
+				            <i class="fas fa-check" aria-hidden="true"></i>
+				            Donation Target Acheived!
+				        {% else %}
+				            <i class="fas fa-pound-sign" aria-hidden="true"></i>
+				            £{{ ticket.total_donations }} <span>/£200</span>
+				        {% endif %}
+			        </p>
+			    {% endif %}
+		    </div>
+
+		<!-- this part only available if user is logged in, if user has created the ticket, and ticket status is not closed -->
+		    {% if user.is_authenticated and user.id == ticket.user.id and ticket.ticket_status.ticket_status != "Closed" %}
+		    <div class="col s12 center-align">
+			    <div class="ticket-details-break"></div>
+		    </div>
+		    <div class="col s12 center-align">
+			    <a href="{% url 'edit_ticket' ticket.pk %}" class="waves-effect waves-light btn edit-button" aria-label="Edit Ticket page">
+				    <i class="fas fa-edit icon-left" aria-hidden="true"></i>
+				    <span class="hide-on-small-and-down">Edit</span>
+			    </a>
+			    <a href="#delete_modal" class="waves-effect waves-light btn modal-trigger delete-button" aria-label="Delete Ticket modal">
+				    <i class="fas fa-trash icon-left" aria-hidden="true"></i>
+				    <span class="hide-on-small-and-down">Delete</span>
+			    </a>
+		    </div>
+		{% endif %}
+	    </div>
+
+
+	<!-- Upvote Section is only available if a user is logged in and the ticket isn't closed, and that the user hasn't created the ticket -->
+	{% if user.is_authenticated and ticket.ticket_status.ticket_status != "Closed" and user != ticket.user %}
+	    <div class="row view-one-ticket center-align">
+		<!-- Allow user upvoting if user hasn't already upvoted -->
+		    {% if user.id not in user_upvotes %}
+		<!-- If the Feature's target hasn't been acheived, the user will need to donate to upvote -->
+		        {% if ticket.ticket_type.ticket_type == "Feature" and ticket.total_donations < 200 %}
+		    <!-- Upvote button triggers a payment modal for feature tickets -->
+		            <div class="col s12">
+			            <h3 class="card-title center-align">Want to donate for this feature to become accessable?</h3>
+			            <small>We will begin development once the &pound;200 donation goal is reached!</small>
+		            </div>
+		            <div class="col s12">
+			            <a href="#payment_modal" class="waves-effect waves-light btn edit-button modal-trigger" aria-label="Donate and Upvote modal">
+				            <i class="fas fa-thumbs-up icon-left" aria-hidden="true"></i>
+				            <span class="hide-on-small-and-down">Donate &amp; Upvote</span>
+			            </a>
+		            </div>
+		<!-- If a Feature's donation target has been acheived, or a Bug ticket, users can upvote for free -->
+		        {% else %}
+		            <div class="col s12">
+			            <h3 class="ticket-title center-align">Want to support this ticket?</h3>
+			            {% if ticket.ticket_type.ticket_type == "Feature" and ticket.total_donations >= 100 %}
+			                <p>The &pound;200 donation target has been reached so upvotes are now free!</p>
+			            {% endif %}
+		            </div>
+		            <div class="col s12">
+			            <a href="{% url 'upvote' ticket.pk %}" class="waves-effect waves-light btn upvote-thumb edit-button" aria-label="Upvote button">
+				            <i class="fas fa-thumbs-up icon-left" aria-hidden="true"></i>
+				            <span class="hide-on-small-and-down">Upvote</span>
+			            </a>
+		            </div>
+		        {% endif %}
+	    </div>
+    {% endif %}
+
+	<!-- Comments -->
+	<div class="row center-align">
+		<div class="col s12">
+			<h3 class="comments-title">
+				<i class="fas fa-comments icon-left" aria-hidden="true"></i>
+				Comments
+			</h3>
+		</div>
+		<div class="col s12 center-align comment-area">
+			<!-- If there are comments on the ticket, they will be displayed -->
+			{% if comments %}
+			    <ul class="center-align">
+                    {% for comment in comments %}
+                        <li class="center-align">
+		                    <p>
+						        <i class="fas fa-comments icon-left" aria-hidden="true"></i>
+						        {{ comment.description }}
+                                <p>comment by "{{ comment.user.username }}"</p>
+					        </p>
+                        </li>
+                    {% endfor %}
+                </ul>    
+				
+			    
+			{% else %}
+			<!-- If there are no comments on the ticket, some helper text will be displayed -->
+                <div class="one-ticket-view">
+			    <p class="helper-text center-align">Nobody has commented on this {{ ticket.ticket_type }}!</p>
+                </div>
+			{% endif %}
+		</div>
+		<!-- Add Comment Section but only available if the ticket isn't closed -->
+		{% if ticket.ticket_status.ticket_status != "Closed" %}
+		    <div class="col s12 center-align">
+			    {% if user.is_authenticated %}
+			<!-- Comment Form - only available if user is logged in -->
+			        <form id="comment_form" method="POST" enctype="multipart/form-data">
+				        {% csrf_token %}
+				        {{ comment_form }}
+				        <button type="submit" class="btn btn-primary sm-md-btn comment-button" aria-label="Add Comment button">
+                            <span class="hide-on-small-and-down add-comment-span">Add Comment</span>
+                            <i class="fas fa-comment icon-right" aria-hidden="true"></i>
+                        </button>
+			        </form>
+			    {% endif %}
+			<!-- Links for user to login or register to add a comment if not logged in -->
+			        <div class="view-one-ticket center-align positioner">
+                    <p class="help-text-login">
+				        <a href="{% url 'login' %}" class="login-text" aria-label="Login Page">
+					        Login
+				        </a>
+				        or
+				        <a href="{% url 'registration' %}" class="register-text" aria-label="Registration Page">
+					        Register
+				        </a>
+				            to add a comment!
+			        </p>
+                    </div>
+			    {% endif %}
+		    </div>
+		{% endif %}
+	</div>
+
+	<!-- Back button - only visible on tablet and below -->
+	<div class="row center-align">
+		<div class="col s12">
+			<a class="waves-effect waves-light btn standard-btn back-button" aria-label="Back button" onclick="history.back()">
+				Back
+				<i class="fas fa-step-backward icon-right" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+
+	<!-- Delete Modal - Allows users to delete the relevant ticket -->
+	<div id="delete_modal" class="modal view-one-ticket">
+		<div class="center-align">
+			<h4 class="modal-title">Are you sure you want to delete this ticket?</h4>
+			<p class="delete-warning">
+				This {{ ticket.ticket_type }} ticket will be permanently deleted if you proceed!
+			</p>
+			<div class="input-field col s12">
+				<a class="waves-effect waves-light btn edit-button" href="{% url 'delete_ticket' ticket.id %}" aria-label="Confirm Deletion button">
+					<i class="fas fa-check" aria-hidden="true"></i>
+					<span class="hide-on-small-and-down">Yes</span>
+				</a>
+				<a class="modal-close waves-effect waves-light btn delete-button" aria-label="Cancel Deletion button">
+					<i class="fas fa-times" aria-hidden="true"></i>
+					<span class="hide-on-small-and-down">No</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Payment Modal - Allows users to donate when upvoting a feature ticket -->
+	<div id="payment_modal" class="modal view-one-ticket">
+		<div class="modal-content center-align">
+			<h4 class="title ticket-title">Donate &amp; Upvote</h4>
+			<form method="POST" action="{% url 'upvote' ticket.pk %}" id="payment-form" data-token="{{ publishable }}">
+				<div class="col-sm-12 center-align">
+					{% csrf_token %}
+					{{ donation_form }}
+				</div>
+				<div class="col s12">
+					<!-- Stripe Payment form -->
+					<label for="card-element" class="payment-form-label">
+                        Credit or Debit Card
+                    </label>
+					<div id="card-element" class="center-align">
+						<!-- A Stripe Element will be inserted here. -->
+					</div>
+					<!-- Used to display form errors. -->
+					<div id="card-errors" role="alert"></div>
+				</div>
+				<div class="input-field col s12">
+					<button class="btn waves-effect waves-light edit-button" type="submit" aria-label="Upvote Feature button">
+                        <span class="hide-on-small-and-down">Upvote</span>
+                        <i class="fas fa-check icon-right" aria-hidden="true"></i>
+                    </button>
+					<a class="modal-close waves-effect waves-light btn delete-button" aria-label="Cancel Upvote button">
+						<span class="hide-on-small-and-down">Cancel</span>
+						<i class="fas fa-times icon-right" aria-hidden="true"></i>
+					</a>
+				</div>
+			</form>
+		</div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<!-- Stripe payment API tag -->
+<script src="https://js.stripe.com/v3/"></script>
+<!-- stripe.js file tag -->
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

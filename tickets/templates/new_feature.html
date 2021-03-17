@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load materializecss %}
+{% load staticfiles %}
+
+{% block title %}New Feature | {% endblock %}
+{% block page_heading %}Leave a FEATURE request{% endblock %}
+{% block content %}
+    
+    <div class="row">
+    
+        <!-- New Feature Form -->
+        <div id="new_feature" class="col s12 view-one-ticket">
+            <form class="col s12" method="POST" id="payment-form" data-token="{{ publishable }}">
+                <div>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            {% csrf_token %}
+                            {{ feature_form.title|materializecss:'icon=fas fa-cogs' }}
+                            {{ feature_form.description|materializecss:'icon=fas fa-file-alt' }}
+                            <h5 class="center-align donate-text">
+                                Please make a small donation to submit your Feature Request
+                                <br>
+                                <small class="small-donate-text">
+                                    Production of a Feature Request won't begin until the donation goal of £200 is reached!
+                                </small>
+                            </h5>
+                            {{ donation_form }}
+                        </div>
+                        <div class="col s12">
+                            <!-- Stripe Payment form -->
+                            <label for="card-element" class="payment-form-label">
+                                Credit or Debit Card
+                            </label>
+                            <div id="card-element" class="center-align">
+                                <!-- A Stripe Element will be inserted here. -->
+                            </div>
+                            <!-- Used to display form errors. -->
+                            <div id="card-errors" role="alert"></div>
+                        </div>
+                        <!--Add and Cancel buttons-->
+                        <div class="col s12 center-align">
+                            <button class="btn waves-effect waves-light edit-button" type="submit" aria-label="Add Feature button">
+                                <span class="hide-on-small-and-down">Pay &amp; Add</span>
+                                <i class="fas fa-plus-circle icon-right" aria-hidden="true"></i>
+                            </button>
+                            <a class="btn waves-effect waves-light delete-button" aria-label="Cancel button" href="{% url 'get_tickets' %}">
+                                <span class="hide-on-small-and-down">Cancel</span>
+                                <i class="fas fa-times-circle icon-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block js %}
+    <!-- Stripe payment API tag -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- stripe.js file tag -->
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block page_title %}Home Page | {% endblock %}
+{% block page_heading %}WELCOME{% if user.is_authenticated %} {{ user.username }} {% endif %} TO UNICORN ATTRACTOR{% endblock %}
+{% block content %}
+<div class="container index-page center-align">
+	<h1 class="what-we-do">What we do?</h1>
+	<hr>
+	<p class="about-game">We here at Unicorn Attractor handle all the BUG reports and FEATURE requests for the game.
+    </p>
+</div>
+<div class="container index-page center-align">
+	<h1 class="what-we-do">BUG REPORT <i class="fas fa-bug"></i></h1>
+	<hr>
+	<p class="about-game">If you have found a BUG and would like to report it you must be registered and signed in
+    </p>
+</div>
+<div class="container index-page center-align">
+	<h1 class="what-we-do">FEATURE REQUEST <i class="fas fa-cogs"></i></h1>
+	<hr>
+	<p class="about-game">We here at Unicorn Attractor beleive that it is very important that the user has some control of how the game looks
+    and feels. That is why we have decided to let YOU the user request features that you would like to see in the game. A small donation is required to make a 
+    feature request. All feature request must meet a target of £200 to be put forward to the game developers so they can be integrated into the game.
+    </p>
+</div>
+
+
+
+{% endblock %}
