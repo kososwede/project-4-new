@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/kososwede/project-4-new.svg?branch=master)](https://travis-ci.com/kososwede/project-4-new)
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome Christopher McIlgrew,
