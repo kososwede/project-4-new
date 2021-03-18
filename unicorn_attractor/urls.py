@@ -28,3 +28,6 @@ urlpatterns = [
     url(r'^accounts/', include(accounts_urls)),
     url(r'^tickets/', include(tickets_urls)),
 ]
+
+handler404 = 'unicorn_attractor.views.handler404'
+handler500 = 'unicorn_attractor.views.handler500'
