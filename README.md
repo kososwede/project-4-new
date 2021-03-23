@@ -9,9 +9,9 @@
 ___
 This is my fourth and final milestone project for [Code Institute](https://www.codeinstitute.net). The app that I have created is for a made up game called Unicorn Attractor. My site allows users to log bug reports that they have found in the game or to add feature requests for a small fee that when the target amount has been reached the feature that was requested will be worked on and then implemented into the game.
 
-Here you will find a link to my website via HEROKU: <https://myproject4-mcilgrew.herokuapp.com>
+Here you will find a link to my website via HEROKU: <https://project-4-new.herokuapp.com/>
 
-Here you will find a link to my code via GITHUB: <https://kososwede.github.io/MyProject4/>
+Here you will find a link to my code via GITHUB: <https://github.com/kososwede/project-4-new>
 
 ## UX
 ___
